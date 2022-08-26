@@ -4,7 +4,8 @@
 
 Итак, переходим на нужную нам страницу и открываем DevTools, выбирая элемент с балансом:
 
-![](pic/DOM.png)
+<img width="1159" alt="DOM" src="https://user-images.githubusercontent.com/103579821/186910181-ec600279-02ed-45fa-99a1-ff2bf669ff63.png">
+
 
 Видим следующую вещь: содержимое элемента представляет из себя следующую строку:
 
@@ -16,7 +17,8 @@
 
 Давайте накидаем Page Object и посмотрим, что мы получим:
 
-![](pic/text.png)
+<img width="761" alt="text" src="https://user-images.githubusercontent.com/103579821/186910438-e0b1eae1-d247-45fb-a69c-15ae9a8901d5.png">
+
 
 Т.е. метод `text` возвращает и текст на кнопке тоже.
 
@@ -29,9 +31,10 @@
 
 Примечание*: мы не стали усложнять для вас пример, но вы должны помнить о копейках и о том, что некоторые банки не показывают копейки, если они по нулям (00), а показывают только если там действительно они есть:
 
-![](pic/with-kopecks.png)
+<img width="557" alt="with-kopecks" src="https://user-images.githubusercontent.com/103579821/186910732-9cec82ad-022f-488d-9c41-e2875c31e2d5.png">
 
-![](pic/without-kopecks.png)
+<img width="549" alt="without-kopecks" src="https://user-images.githubusercontent.com/103579821/186910781-e5c2b13e-eb49-492d-8c0d-15d8170bd31f.png">
+
 
 Примечание: скриншоты Банка Тинькофф
 
