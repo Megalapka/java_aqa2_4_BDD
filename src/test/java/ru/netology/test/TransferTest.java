@@ -27,7 +27,7 @@ public class TransferTest {
 
         DashboardPage balanceCard = new DashboardPage();
         int startBalanceFirstCard = balanceCard.getCardBalance("92df3f1c-a033-48e6-8390-206f6b1f56c0");
-        int startBalanceSecondCard =balanceCard.getCardBalance("0f3f5c2a-249e-4c3d-8287-09f7a039391d");
+        int startBalanceSecondCard = balanceCard.getCardBalance("0f3f5c2a-249e-4c3d-8287-09f7a039391d");
         int sum;
         if (startBalanceSecondCard > 3000 ) {
         sum = 3000;
@@ -35,7 +35,7 @@ public class TransferTest {
         DashboardPage.transferOwnToFirstFromSecondCard(String.valueOf(sum));
 
         int actualBalanceFirstCard = balanceCard.getCardBalance("92df3f1c-a033-48e6-8390-206f6b1f56c0");
-        int actualBalanceSecondCard =balanceCard.getCardBalance("0f3f5c2a-249e-4c3d-8287-09f7a039391d");
+        int actualBalanceSecondCard = balanceCard.getCardBalance("0f3f5c2a-249e-4c3d-8287-09f7a039391d");
 
         Assertions.assertEquals((startBalanceFirstCard + sum), actualBalanceFirstCard);
         Assertions.assertEquals((startBalanceSecondCard - sum), actualBalanceSecondCard);
@@ -54,7 +54,7 @@ public class TransferTest {
 
         DashboardPage balanceCard = new DashboardPage();
         int startBalanceFirstCard = balanceCard.getCardBalance("92df3f1c-a033-48e6-8390-206f6b1f56c0");
-        int startBalanceSecondCard =balanceCard.getCardBalance("0f3f5c2a-249e-4c3d-8287-09f7a039391d");
+        int startBalanceSecondCard = balanceCard.getCardBalance("0f3f5c2a-249e-4c3d-8287-09f7a039391d");
 
         int sum;
         if (startBalanceFirstCard > 2000 ) {
@@ -64,7 +64,7 @@ public class TransferTest {
         DashboardPage.transferOwnToSecondFromFirstCard(String.valueOf(sum));
 
         int actualBalanceFirstCard = balanceCard.getCardBalance("92df3f1c-a033-48e6-8390-206f6b1f56c0");
-        int actualBalanceSecondCard =balanceCard.getCardBalance("0f3f5c2a-249e-4c3d-8287-09f7a039391d");
+        int actualBalanceSecondCard = balanceCard.getCardBalance("0f3f5c2a-249e-4c3d-8287-09f7a039391d");
 
         Assertions.assertEquals((startBalanceFirstCard - sum), actualBalanceFirstCard);
         Assertions.assertEquals((startBalanceSecondCard + sum), actualBalanceSecondCard);
