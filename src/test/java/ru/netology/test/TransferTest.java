@@ -88,9 +88,8 @@ public class TransferTest {
         int sum = 10000 + startBalanceSecondCard;
         DashboardPage.transferOwnToFirstFromSecondCard(String.valueOf(sum));
         String actualMsg = balanceCard.errorWithInsufficientSum();
-        String expectedMsg = "Ошибка! Недостаточно средств на карте";
+        String expectedMsg = "Ошибка! Недостаточно средств на карте!";
         Assertions.assertEquals(expectedMsg, actualMsg);
-
 
     }
 
