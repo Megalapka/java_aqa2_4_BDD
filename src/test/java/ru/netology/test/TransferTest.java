@@ -17,12 +17,12 @@ public class TransferTest {
     @Test
     @DisplayName("Should transfer money to first card from second card")
     void shouldTransferMoneyToFirstFromSecondCard() {
-
+        DataHelper dataHelper = new DataHelper();
         open("http://localhost:9999");
         var loginPage = new LoginPage();
-        var authInfo = DataHelper.getAuthInfo();
+        var authInfo = dataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
-        var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
+        var verificationCode = dataHelper.getVerificationCodeFor(authInfo);
         verificationPage.validVerify(verificationCode);
 
         DashboardPage balanceCard = new DashboardPage();
@@ -44,12 +44,12 @@ public class TransferTest {
     @Test
     @DisplayName("Should transfer money to second card from first card")
     void shouldTransferMoneyToSecondCardFromFirst() {
-
+        DataHelper dataHelper = new DataHelper();
         open("http://localhost:9999");
         var loginPage = new LoginPage();
-        var authInfo = DataHelper.getAuthInfo();
+        var authInfo = dataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
-        var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
+        var verificationCode = dataHelper.getVerificationCodeFor(authInfo);
         verificationPage.validVerify(verificationCode);
 
 //        DashboardPage balanceCard = new DashboardPage();
@@ -73,10 +73,10 @@ public class TransferTest {
     @Test
     @DisplayName("Should not transfer money to first card if on second card insufficient sum")
     void shouldNotTransferMoneyToFirstCardFromSecondInsufficientSum() {
-
+        DataHelper dataHelper = new DataHelper();
         open("http://localhost:9999");
         var loginPage = new LoginPage();
-        var authInfo = DataHelper.getAuthInfo();
+        var authInfo = dataHelper.getAuthInfo();
 //        var verificationPage = loginPage.validLogin(authInfo);
 //        var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
 //        verificationPage.validVerify(verificationCode);
