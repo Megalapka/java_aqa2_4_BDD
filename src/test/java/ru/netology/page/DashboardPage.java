@@ -1,8 +1,11 @@
 package ru.netology.page;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.val;
+import org.checkerframework.checker.units.qual.C;
+import ru.netology.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -18,8 +21,15 @@ public class DashboardPage {
         heading.shouldBe(visible);
     }
 
-    public int getCardBalance(String id) {
-        String text = $("[data-test-id =" +"'" + id + "']").getText();
+
+    public  String getCardNumber() {
+        String cardNumber = "454365";
+        return cardNumber;
+    }
+
+
+    public int getCardBalance(DataHelper.CardData cardData) {
+        String text = cards.findBy(Condition.text(cardData.getCardNumber().substring(12,16))).getText();
         return extractBalance(text);
     }
 
@@ -29,13 +39,7 @@ public class DashboardPage {
         val value = text.substring(start + balanceStart.length(), finish);
         return Integer.parseInt(value);
     }
-    public static void transferOwnToFirstFromSecondCard(String sum) {
-        $$("[data-test-id='action-deposit'").get(0).click();
-        $("[data-test-id='amount'] .input__control").sendKeys(sum);
-        $("[data-test-id='from'] .input__control").sendKeys("5559 0000 0000 0002");
-        $("[data-test-id='action-transfer'").click();
-        $("[data-test-id='dashboard'").should(visible);
-    }
+
 
     public static void transferOwnToSecondFromFirstCard(String sum) {
         $$("[data-test-id='action-deposit'").get(1).click();
@@ -49,6 +53,10 @@ public class DashboardPage {
         return $("[data-test-id='error-notification'] .notification__content").getText();
     }
 
+    public TransferPage getTransferPage() {
+        $$("[data-test-id='action-deposit'").get(0).click();
+        return new TransferPage();
+    }
 
 }
 
