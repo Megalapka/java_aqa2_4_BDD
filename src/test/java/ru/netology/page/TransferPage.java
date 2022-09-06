@@ -3,14 +3,16 @@ package ru.netology.page;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.data.DataHelper;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 
 public class TransferPage {
 
-    private SelenideElement heading = $("[data-test-id=dashboard]").shouldHave(text("Пополнение карты"));
+    private SelenideElement heading = $x("//h1[text()='Пополнение карты']");
     private  SelenideElement amount = $("[data-test-id='amount'] .input__control");
     private  SelenideElement from = $("[data-test-id='from'] .input__control");
     private  SelenideElement messError = $("[data-test-id='error-notification'] .notification__content");
@@ -31,7 +33,7 @@ public class TransferPage {
         buttonTransfer.click();
     }
 
-    public String errorWithInsufficientSum() {
-        return messError.getText();
+    public void errorWithInsufficientSum(String expectedText) {
+        messError.shouldHave(exactText(expectedText), Duration.ofSeconds(15)).shouldBe(visible);
     }
 }
